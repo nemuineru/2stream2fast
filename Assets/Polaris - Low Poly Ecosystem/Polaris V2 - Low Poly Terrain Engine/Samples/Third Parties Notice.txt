@@ -1,0 +1,6 @@
+All art assets in the Polaris V2 package are provided by Pinwheel Studio and partner publishers (Partners), that:
+- Pinwheel Studio has been granted access to the sample assets from Partners.
+- Pinwheel Studio have permission select and include the sample assets with the Polaris V2 package.
+- Pinwheel Studio have permission to redistribute the sample assets on the Asset Store within the Polaris V2 package, and will give credit to the Partners on the store page.
+- Users of the Polaris V2 are freely to use the sample assets in their Unity projects, and distribute their games/applications with the assets inside, for commercial purposes.
+- Users of the Polaris V2 are NOT ALLOWED to re-distribute the sample assets as separate package, or distribute their projects with the sample assets inside.

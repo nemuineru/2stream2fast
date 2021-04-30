@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74547fd1526184b4088998c69e46ffea, type: 3}
+  m_Name: PolarisSkin
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: 088457680be0e8b41813ba352a4b19ea, type: 3}
+  - {fileID: 2800000, guid: d42681901f8662b41941c82d7dca0ec8, type: 3}
+  - {fileID: 2800000, guid: 40b931fcb4fd4d04ab710f1a850cbd73, type: 3}

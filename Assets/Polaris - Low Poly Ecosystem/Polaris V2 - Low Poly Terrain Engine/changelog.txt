@@ -1,0 +1,318 @@
+V2.5.9 LTS
+FIXES
+- Minor bug fixing.
+
+===
+V2.5.8 LTS
+FIXES
+- Fix Gradient Lookup textures in Linear color space.
+- Minor fixes for demo scenes.
+
+===
+V2.5.7 LTS
+FIXES
+- Fix Detail Objects rendering issues.
+
+===
+V2.5.6 LTS
+FIXES
+- Fix grass mesh references lost at runtime.
+
+===
+V2.5.5 LTS
+IMPROVEMENTS
+- Adding Spline Changed callback for Poseidon compatible.
+
+===
+V2.5.4 LTS
+FIXES
+- Minor fixes to add support for Unity 2020.
+
+===
+V2.5.3 LTS
+IMPROVEMENTS
+- Optimize terrain GetMesh function from using string keys to nummeric keys.
+
+===
+V2.5.2 LTS
+IMPROVEMENTS
+- Serialize meshes as binary for compact size.
+
+===
+V2.5.1 LTS
+FIXES
+- Fix Interactive Grass shader for Builtin RP.
+- Fix scene view callback for terrain tools.
+
+===
+V2.5.0 LTS
+IMPROVEMENTS
+- Show prototype selector as grid when there is many prototype groups used in the scene.
+- Tone down Geometry-Texture Painter sensitivity, adding Target Strength slider to adjust brush max strength.
+- Create Tree/Grass/Detail Object Prototype Group from Prefab Prototype Group and vice versa.
+- Adding new stylized grass texture.
+- Update Help database and document, fix all "Griffin" to "Polaris" to avoid confusion.
+- Rename builtin RP shader, fix all "Griffin" to "Polaris".
+FIXES
+- Fix all hardcorded paths in C# and shader.
+- Fix "green quad grass" bug when drag and drop terrain data into Scene View and Hierarchy
+- Re-generate terrain mesh when restoring a backup/history that contains albedo map, when Albedo To Vertex Color is in use.
+
+===
+V2.4.9.1
+FIXES
+- Minor fix for package initialization.
+- Fix draw grass preview bug.
+
+===
+V2.4.9
+IMPROVEMENTS
+- Adding support for URP Extension v1.0.5
+FIXES
+- Minor fix for MicroSplat integration. 
+
+===
+V2.4.8
+NEW FEATURES
+- Adding support for MicroSplat as an extension.
+IMPROVEMENTS
+- New splat selector for texturing tool, now display as a grid if multiple texture is used in the same layer.
+FIXES
+- Fix Texture Stamper height blend precision.
+DEPRECATED
+- Remove all assembly definition files as they introduce too many constraints.
+
+===
+V2.4.7
+IMPORTANT!
+- Please BACK UP your project and perform a clean update. This is required due to major changes in package structure.
+NEW FEATURES
+- Compile Runtime and Editor code in their own assemblies.
+- Adding some test case to use with Unity Test Runner to quickly detect package misconfigure issues.
+- Adding sample assets from 2 talented publishers Total Game Assets and Distant Lands. See ThirdPartiesNotice.txt for detail.
+IMPROVEMENTS
+- Re-organize package files for better assemblies managements.
+- Many code clean up.
+
+===
+V2.4.6
+NEW FEATURES
+- Adding the Builtin RP Support extension to reset material and shaders without the need of re-import the package.
+- Adding Polygon Distribution property, which allows you to select Dynamic or Uniform distribution.
+IMPROVEMENTS
+- Terrain chunk's position will be place at the center of their mesh for better level streaming and baking.
+- Optimize geometry generation process.
+- Strip off vertex color and tangent channel from geometry meshes if it's not necessary for the shader.
+- Improve grass batching performance, reduce grass mesh storage.
+- Optimize grass shader.
+- Change height map format to RGBA32 that greatly reduce texture memory.
+- History now records faster, reduce lagging on mouse down and up when painting.
+CHANGES
+- Height map now use RGBA32 format, with height encoded to RG channels, B for sub-division and A for visibility.
+FIXES
+- Fix some bug that prevent terrain from being spawn from scratch at runtime via code.
+- Fix Live Preview Z-fight. 
+
+===
+V2.4.5
+IMPROVEMENTS
+- Refactoring scripting API, adding Scripting API doc.
+- Adding per-prototype grass color.
+- Optimize grass shader.
+FIXES
+- Fix conflict between demo water shader and Poseidon water shader.
+- Fix LWRP Support module not appeared in Extension window.
+
+===
+V2.4.4
+IMPROVEMENTS
+- Minor Editor GUI improvements.
+
+===
+V2.4.3
+IMPROVEMENTS
+- Terrain will filled with the first splat texture on create.
+- Geometry - Texture Painter perform better smooth operation between terrain tiles.
+- Tree Prototypes: Adding Base Scale and Base Rotation properties.
+FIXES
+- Fix Texture Stamper live preview when editing multiple terrain.
+- Fix Unity Terrain Data Importer bug.
+- Billboard Creator now render alpha channel correctly.
+- Fix Subdiv and Visibility Live Preview on Mac Editor.
+
+===
+V2.4.2
+IMPROVEMENTS
+- Texture Importer/Exporter: adding import/export visibility map.
+- Faster grass preview on painting.
+- Group Tool: Adding bulk data import, export.
+- Group Tool: Adding some context menus.
+- Group Tool: Adding more overridable properties for Foliage settings.
+- Geometry Stamper: Adding ability to stamp to visibility channel, use Falloff curve to blend with source geometry.
+- Stamper Tools: Adding Snap To Terrain and Snap To Level Bounds action.
+CHANGES
+- LWRP and URP support now provided in separated packages. Install them using the Extension Window.
+
+===
+V2.4.1
+NEW FEATURES
+- Adding support for Universal Render Pipeline.
+- Adding Extension System for extent Polaris functionalities using third parties assets.
+- Adding Height Map Filter component, apply blur and step effect on height map sampling.
+- New terrain callbacks: PreProcessHeightMap and PostProcessHeightMap
+IMPROVEMENTS
+- Shading settings GUI improvements.
+FIXES
+- Reset Shading setting doesn't flush out terrain material anymore.
+
+===
+V2.4.0
+NEW FEATURES
+- Geometry & Texture Painters Live Preview: now you can see preview of painter effect on terrain surface.
+- New set of Geometry Painter: including Terrace, Remap and Noise painter.
+- New set of Terrain Shader: Lambert, BlinnPhong and PBR Vertex Color.
+- Support for Amplify Shader Editor: now you can visually edit terrain shader to fit your special needs using ASE. Support for both Builtin RP and LWRP.
+- Terrain Wizard: Adding new option to select number of splats and normal maps when using Splats texturing model.
+- Terrain Wizard: Support for Vertex Color texturing model.
+- Interactive Grass: Now support for both Builtin RP and LWRP with better interaction.
+- Wind Zone: a new component which allow you to control global wind effect on grass.
+IMPROVEMENTS
+- Adding new noise type for noise generator, including Billow and Value noise.
+- Terrain & Foliage shader is completely remade for both Builtin RP and LWRP, using Amplify Shader Editor.
+- Terrain Converter: now pick an appropriate terrain shader depend on number of terrain layers. (4 or 8 layers)
+- Editor GUI: Display terrain shader's name under Material slot in the Inspector.
+- Re-organize shader family and shader files.
+- Improve tree and grass painting performance.
+FIXES
+- Terrain Wizard will force using PBR lighting model when using LWRP.
+DEPRECATED
+- Drop support for Unity Shader Graph, most shader now use Amplify Shader Editor.
+
+===
+V2.3.2
+NEW FEATURES
+- Interactive Grass (touch bending): Breath life into your scene by making grass react to moving agent. Support for unlimited agent. This feature is still experimental, LWRP not supported yet.
+IMPROVEMENTS
+- Grass Prototype: adding Pivot Offset and Bend Factor properties, support for custom mesh for grass shape.
+- Prototype Group: cache prefab asset path to avoid reference lost when down version the editor.
+- Terrain Wizard: now you can open the wizard in Shading context menu to set terrain shader, by setting Lighting model and Texturing model.
+FIXES
+- Terrain Pinning: now only accept left mouse click.
+
+===
+V2.3.1
+FIXES
+- Minor bug fix for main thread checking.
+
+===
+V2.3.0
+NEW FEATURES
+- Object Painters: paint objects as prefab instance onto terrain surface.
+- Spline based Object Spawner/Remover: randomly spawn/remove game object as prefab instance along a path.
+- Object Stamper: stamp game object as prefab instance using mask.
+- Object Helper: Utility component for managing spawned game objects.
+- Prefab Prototype Group: a new data container for ease of managing prefab variation.
+IMPROVEMENTS
+- Foliage Filters System: now become Spawn Filters System, which will work with both Foliage Painters and Object Painters.
+- Painters Tools: tree prototype/grass prototype/object selector now support multi-selection mode, with different probability for each prototypes.
+- Texture Creator: support multi-selection mode for Foliage Distribution Map Generator.
+- Foliage/Object snapping: now you can choose to snap them to terrain surface, or world objects with collider (filtered by layer mask).
+- Geometry background generation: geometry mesh now generated in background thread in some case to avoid hanging the editor.
+FIXES
+- Rename geometry root object from "_Geometry" to "~Geometry".
+- Terrain Pinning: newly pinned terrain will copy main data (dimension, material properties, etc.) from source one.
+
+===
+V2.2.1
+FIXES
+- Terrain Tools now work as expected in Linear color space.
+- Billboard Creator now render atlas correctly in LWRP.
+- Foliage have correct position after importing Unity Terrain Data.
+
+===
+V2.2.0
+NEW FEATURES
+- Texture Creator: a new way for creating and authoring terrain textures and advanced mask creation (up to 4K), support a wide variety of texture types: Height Map, Stamp Mask From Mesh, Sharp/Interpolated/Per-Pixel Normal Map, Steepness Map, Noise Map, Color Map, Blend Map, Foliage Distribution Map, and more interesting effect with Filters Stack and Live Preview.
+FIXES
+- Fix Texture Stamper & Path Painter live preview bug.
+- Snap trees and grasses onto terrain surface after heightmap importing.
+- Fix NULL error when enter/leave play mode, switch scene with a stamper/spline selected in the Inspector.
+- Minor Editor GUI fixes.
+- Minor bug fixes.
+IMPROVEMENTS
+- Simplify Terrain Data ID.
+- Terrain Generated Data assets now display some statistic in the Inspector.
+- Simplify Billboard Editor GUI, adding dropdowns to select main texture and main color properties from the shader.
+- Data Tools: data importers now create Backup before and after the process.
+- Terrain Tools undo/redo refactoring.
+- Texture Stamper, Foliage Stamper: now you can choose to use sharp/interpolated/per-pixel normal map for Slope Blending.
+- Automatically refresh terrain material when select a terrain or texturing-related tools.
+- Group Tool: now it only overrides terrain material’s shader instead of replacing the material.
+- Editor GUI: Adding some instruction and warning for correct usage.
+- Tree rendering: adding Pivot Offset to bring the tree up/down from the surface, no need to mess with modeling software.
+- Terrain Pinning: newly pinned terrain will have the same shader with the previous one.
+
+===
+V2.1.4
+IMPROVEMENTS
+- Paint tools now able to show paint mode as grid or dropdown.
+- Terrain related assets now have different icons in the editor.
+- Newly created terrains will be placed under a root game object for better scene structure.
+- Terrain pining mode UX improved.
+FIXES
+- Gradient Lookup shaders now use pre-multiply albedo blending to get rid of dark borders.
+
+===
+V2.1.3
+IMPROVEMENTS
+- Adding some demo tree prefabs. Updating demo scenes.
+FIXES
+- Scene navigation with Alt key issue when using Paint tools.
+
+===
+V2.1.2
+FIXES
+- Terrain tool shaders lost at runtime.
+
+===
+V2.1.1
+FIXES:
+- Geometry static flags and lightmap baking result getting reset when reload scenes.
+
+===
+V2.1.0
+NEW FEATURES:
+- Unity Undo compatible: Undo/Redo work seamlessly with Backup system by Ctrl+Z and Ctrl+Y.
+- Terrain Pinning & Auto Connect: create neighbor terrain and connect adjacent tiles in one click.
+- Detail Mesh: painting and rendering a huge amount of environment detail like rocks, debrises, etc.
+- Brush Dynamic: more control over brush stroke like radius jitter, opacity jitter, scatter, etc.
+- Data Importer: import data from Unity terrain data, Polaris V1 data, RAW files and textures.
+- Data Exporter: export data to Unity terrain data, RAW files and textures.
+- Unity Terrain Converter: convert a group of Unity Terrain to low poly, migrate from 3rd parties tools like Gaia, MapMagic and TerrainComposer is easier than ever!
+- Debug Mode: visualize recently updated chunks in the Scene View, and more.
+IMPROVEMENTS:
+- Height Map: now switch to RGBAFloat format for more precise elevation data.
+- Grass/Detail: now can align to surface normal vector.
+- Paint Tool cursor: now follow geometry contour for more comfortable experience.
+- Editor GUI revision: more consistent and organize design.
+- Grass mesh batching: now run asynchronously in the background.
+- Generated data storage: more efficient and compact.
+- Stampers: smoother live preview, faster stamping process.
+- Foliage rendering & Tree Collider: improve performance.
+- Geometry generation: reduce memory usage.
+FIXES:
+- Fix tree/grass incorrect position after geometry modification.
+- Fix foliage rendering culling issues.
+
+===
+V2.0.1
+- New tool: Navigation Helper for carving holes when baking NavMesh.
+- New tool: Help Tool for quickly search for FAQ right in the editor.
+- New component: Tree Collider.
+- Faster geometry generation, adding vertex displacement, Polygon Processor system to inject vertex modification into generation process.
+- Backup files now store outside of Assets folder.
+- Allow drag and drop Terrain Data into Hierarchy & Scene View to recreate the terrain.
+
+===
+V2.0.0
+Initial release.
