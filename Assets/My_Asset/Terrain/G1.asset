@@ -19,3 +19,21 @@ MonoBehaviour:
     tileOffset: {x: 0, y: 0}
     metallic: 0
     smoothness: 0
+  - texture: {fileID: 2800000, guid: 72627668964b0ef4ca9fb9c656d9484d, type: 3}
+    normalMap: {fileID: 0}
+    tileSize: {x: 1, y: 1}
+    tileOffset: {x: 0, y: 0}
+    metallic: 0
+    smoothness: 0
+  - texture: {fileID: 2800000, guid: 2d8e2ff64d555e3449179ed733aeb20e, type: 3}
+    normalMap: {fileID: 0}
+    tileSize: {x: 1, y: 1}
+    tileOffset: {x: 0, y: 0}
+    metallic: 0
+    smoothness: 0
+  - texture: {fileID: 2800000, guid: f4a6c81d2197db442908356b04ff1564, type: 3}
+    normalMap: {fileID: 0}
+    tileSize: {x: 1, y: 1}
+    tileOffset: {x: 0, y: 0}
+    metallic: 0
+    smoothness: 0

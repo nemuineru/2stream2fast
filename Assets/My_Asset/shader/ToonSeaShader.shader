@@ -25,9 +25,8 @@ Properties
 		CGPROGRAM
 	
 		//テッセレーション用に宣言.
-		#pragma surface surf Lambert addshadow fullforwardshadows vertex:disp tessellate:tessDistance 
-		#pragma target 5.0
-		#include "Tessellation.cginc"
+		#pragma surface surf Lambert addshadow fullforwardshadows vertex:disp 
+		#pragma target 3.0
 
 		float _TessFactor;
 		float _Displacement;
@@ -56,11 +55,6 @@ Properties
 			float3 worldPos;
 			float2 uv_MainTex;
 		};
-
-		float4 tessDistance(appdata v0, appdata v1, appdata v2) 
-		{
-			return UnityDistanceBasedTess(v0.vertex, v1.vertex, v2.vertex, _MinDist, _MaxDist, _TessFactor);
-		}
 
 		//波の生成. 
 		void disp(inout appdata v)
