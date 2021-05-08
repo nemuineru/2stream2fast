@@ -15,7 +15,7 @@ public class HoverCraft : MonoBehaviour
     public float displacementAmount = 3.0f;
     public float waterDrag = 0.99f;
     public float waterAngulerDrag = 0.5f;
-    public ParticleSystem splashObj;
+    public ParticleSystem splashObj, splashBoostObj;
     public ParticleSystem WaterJet_L, WaterJet_R, WaterJetFront1, WaterJetFront2;
     ParticleSystem.EmissionModule moduleL,moduleR;
     ParticleSystem.MainModule FrontModule1, FrontModule2;
@@ -61,17 +61,24 @@ public class HoverCraft : MonoBehaviour
         isCraftOnSurface = false;
         if (GameSystem_InGame.instance != null && !GameSystem_InGame.instance.isGameEnded)
         {
+            Vector2 VelXZ = new Vector2(rigidBody.velocity.x, rigidBody.velocity.z).normalized;
             if (rigType != RigType.Test)
             {
                 rigidBody.AddForceAtPosition(Physics.gravity * 1.0f, rigidBody.worldCenterOfMass, ForceMode.Acceleration);
+                float dot = Vector3.Dot(transform.up, Vector3.up);
+                //角速度と現在のオブジェクトの向きからどの方向に回転を加えようとしているのかを確認.
+                Quaternion rotmode = Quaternion.Euler(rigidBody.angularVelocity);
+                float AngleDiff = Vector3.Dot(rotmode * transform.up, Vector3.up)
+                     - Vector3.Dot(transform.up, Vector3.up);
+                Debug.DrawLine(transform.position, transform.position + rotmode * transform.up, Color.green);
                 foreach (InstEffs point in floatpoint)
                 {
                     float waveheight = Waves.instance.GetwaveHeight(point.transform.position);
+                    float dispMultiple = Mathf.Clamp01((waveheight - point.transform.position.y) / depthSubmergeAmount) * displacementAmount;
                     if (point.transform.position.y < waveheight + 0.1f && Vector3.Dot(transform.up, Vector3.down) < 0.0)
                     {
                         isCraftOnSurface = true;
                     }
-                        float dispMultiple = Mathf.Clamp01((waveheight - point.transform.position.y) / depthSubmergeAmount) * displacementAmount;
 
                         Vector3 ForcePos = Vector3.up * Mathf.Abs(Physics.gravity.y) * dispMultiple / floatpoint.Count;
 
@@ -79,7 +86,6 @@ public class HoverCraft : MonoBehaviour
 
                         Vector3 torqueForce = dispMultiple * -rigidBody.angularVelocity * waterAngulerDrag * Time.fixedDeltaTime;
 
-                        float dot = Vector3.Dot(transform.up, Vector3.up);
 
                         Vector3 rigs = new Vector3(rigidBody.velocity.x, 0f, rigidBody.velocity.z) + new Vector3(0.01f, 0f, 0.01f);
                     
@@ -91,8 +97,12 @@ public class HoverCraft : MonoBehaviour
                         rigidBody.AddForce(ForceAll, ForceMode.VelocityChange);
                         if (point.transform.position.y - waveheight < -0.1f && rigidBody.velocity.y < -0.2f && isEffInsted == false)
                         {
+                            rigidBody.AddForce(VelXZ.x * 5f * Speed,0f,VelXZ.y * 5f * Speed,ForceMode.Acceleration);
                             isEffInsted = true;
                             Instantiate(splashObj, point.transform.position, Quaternion.identity);
+                            if (splashBoostObj != null) {
+                                Instantiate(splashBoostObj, transform.position, Quaternion.FromToRotation(splashBoostObj.transform.forward, -transform.forward), transform);
+                            }
                         }
                     }
                     if (rigidBody.velocity.y > 0 && isEffInsted == true)
@@ -100,6 +110,15 @@ public class HoverCraft : MonoBehaviour
                         isEffInsted = false;
                     }
                 }
+                //もしその速度が転覆する速度で転覆しそうであるなら...
+
+                //Transform.upをtransform.forwardの周りで回転してワールド全体の上方向に向けさせる回転をEularでRigidbodyに与える.
+                if ((dot < 0.15f && AngleDiff > 0f) || (!isCraftOnSurface && dot < 0.45f))
+                {
+                    Quaternion quaternion = Quaternion.FromToRotation(transform.up, Vector3.up);
+                    rigidBody.AddTorque(quaternion * Vector3.left * (1f - dot) * 2f);
+                }
+
                 if (!GameSystem_InGame.instance.isGameStarted)
                 {
                     rigidBody.angularVelocity = Vector3.zero;
@@ -109,7 +128,6 @@ public class HoverCraft : MonoBehaviour
                 int layermask = LayerMask.GetMask(new string[] { "Terrain" });
 
                 Physics.Raycast(transform.position, -transform.up, out HitOnTerrain, 0.02f, layermask);
-                Debug.DrawLine(transform.position, HitOnTerrain.point, Color.red);
                 if (HitOnTerrain.transform != null)
                 {
                     isCraftOnSurface = true;

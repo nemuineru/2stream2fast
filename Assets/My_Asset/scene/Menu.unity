@@ -5556,6 +5556,7 @@ MonoBehaviour:
   waterDrag: 0.99
   waterAngulerDrag: 0.5
   splashObj: {fileID: 0}
+  splashBoostObj: {fileID: 0}
   WaterJet_L: {fileID: 0}
   WaterJet_R: {fileID: 0}
   WaterJetFront1: {fileID: 0}
@@ -15149,7 +15150,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854581489}
-  m_LocalRotation: {x: -0.008525241, y: -0.3403969, z: -0.0030864158, w: 0.9402381}
+  m_LocalRotation: {x: -0.008525234, y: -0.3403969, z: -0.0030864128, w: 0.9402381}
   m_LocalPosition: {x: 39.109, y: 0.627, z: -5.152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17094,7 +17095,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.008525241, y: -0.3403969, z: -0.0030864158, w: 0.9402381}
+  m_LocalRotation: {x: -0.008525234, y: -0.3403969, z: -0.0030864128, w: 0.9402381}
   m_LocalPosition: {x: 39.109, y: 0.627, z: -5.152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
