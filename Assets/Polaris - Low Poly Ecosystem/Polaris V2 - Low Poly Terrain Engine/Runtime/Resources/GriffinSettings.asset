@@ -51,7 +51,7 @@ MonoBehaviour:
     type: 3}
   grassTriCross: {fileID: 5907551776619255687, guid: 295bd5319a24c3c4ca7c2b573cdf6c46,
     type: 3}
-  showGeometryChunksInHierarchy: 0
+  showGeometryChunksInHierarchy: 1
   triangulateIteration: 100
   lodTransition:
     serializedVersion: 2

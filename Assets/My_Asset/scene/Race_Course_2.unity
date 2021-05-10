@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 188c8ae1d60a5e34faaf71d8ee55a065, type: 2}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.392478, g: 0.5075463, b: 0.5240809, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5428,7 +5428,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1fdeac39b28b45742b821b6c8acff998, type: 2}
-  - {fileID: 2100000, guid: f516e595f99d2c54f882cf46f2255cd4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22659,12 +22658,15 @@ MonoBehaviour:
   waterAngulerDrag: 0.25
   splashObj: {fileID: 8205706795460263316, guid: 331eba11f8f04b248973e9aacc9c6815,
     type: 3}
+  splashBoostObj: {fileID: 8181897866782400475, guid: edfb79c27988df7499c18ee5c758e939,
+    type: 3}
   WaterJet_L: {fileID: 40359305}
   WaterJet_R: {fileID: 1032507403}
   WaterJetFront1: {fileID: 1128908887}
   WaterJetFront2: {fileID: 1650206059}
   EngineForward: {fileID: 630006200}
   EngineIdle: {fileID: 102263564}
+  isCraftOnSurface: 0
   rigidBody: {fileID: 0}
 --- !u!1 &953195103
 GameObject:
@@ -60738,12 +60740,14 @@ MonoBehaviour:
   waterAngulerDrag: 0.2
   splashObj: {fileID: 8205706795460263316, guid: 331eba11f8f04b248973e9aacc9c6815,
     type: 3}
+  splashBoostObj: {fileID: 0}
   WaterJet_L: {fileID: 2137874352}
   WaterJet_R: {fileID: 1687549634}
   WaterJetFront1: {fileID: 1711589212}
   WaterJetFront2: {fileID: 180950131}
   EngineForward: {fileID: 251334811}
   EngineIdle: {fileID: 2096979260}
+  isCraftOnSurface: 0
   rigidBody: {fileID: 0}
 --- !u!65 &782235359689964385
 BoxCollider:

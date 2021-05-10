@@ -25,7 +25,8 @@ public class HoverCraft : MonoBehaviour
 
     List<bool> FloatPointEffinsted = new List<bool>();
 
-    bool isCraftOnSurface;
+    [ReadOnly]
+    public bool isCraftOnSurface;
     bool isEffInsted = false;
 
     [HideInInspector]
@@ -58,10 +59,22 @@ public class HoverCraft : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        isCraftOnSurface = false;
+        RaycastHit HitOnTerrain;
+        //Terrainレイヤーのみにヒットする.
+        int layermask = LayerMask.GetMask(new string[] { "Terrain" });
+
+        Physics.Raycast(transform.position, -transform.up, out HitOnTerrain, 0.2f, layermask);
+        if (HitOnTerrain.transform != null)
+        {
+            isCraftOnSurface = true;
+        }
+        else {
+            isCraftOnSurface = false;
+        }
         if (GameSystem_InGame.instance != null && !GameSystem_InGame.instance.isGameEnded)
         {
-            Vector2 VelXZ = new Vector2(rigidBody.velocity.x, rigidBody.velocity.z).normalized;
+            Vector3 rigidBdy_XZ = new Vector3(rigidBody.velocity.x, 0f ,rigidBody.velocity.z);
+            Vector3 rig_UpwardPlus = rigidBdy_XZ + new Vector3(0.0f, rigidBdy_XZ.magnitude, 0.0f);
             if (rigType != RigType.Test)
             {
                 rigidBody.AddForceAtPosition(Physics.gravity * 1.0f, rigidBody.worldCenterOfMass, ForceMode.Acceleration);
@@ -85,9 +98,6 @@ public class HoverCraft : MonoBehaviour
                         Vector3 ForceAll = dispMultiple * -rigidBody.velocity * waterDrag * Time.fixedDeltaTime;
 
                         Vector3 torqueForce = dispMultiple * -rigidBody.angularVelocity * waterAngulerDrag * Time.fixedDeltaTime;
-
-
-                        Vector3 rigs = new Vector3(rigidBody.velocity.x, 0f, rigidBody.velocity.z) + new Vector3(0.01f, 0f, 0.01f);
                     
                        
                     if (point.transform.position.y < waveheight)
@@ -97,11 +107,15 @@ public class HoverCraft : MonoBehaviour
                         rigidBody.AddForce(ForceAll, ForceMode.VelocityChange);
                         if (point.transform.position.y - waveheight < -0.1f && rigidBody.velocity.y < -0.2f && isEffInsted == false)
                         {
-                            rigidBody.AddForce(VelXZ.x * 5f * Speed,0f,VelXZ.y * 5f * Speed,ForceMode.Acceleration);
                             isEffInsted = true;
                             Instantiate(splashObj, point.transform.position, Quaternion.identity);
-                            if (splashBoostObj != null) {
-                                Instantiate(splashBoostObj, transform.position, Quaternion.FromToRotation(splashBoostObj.transform.forward, -transform.forward), transform);
+                            if (splashBoostObj != null && rigidBody.velocity.y < -1.0f && GameSystem_InGame.instance.isGameStarted)
+                            {
+                                if (Input.GetAxis("RShoulder") > 0.1 || Input.GetAxis("LShoulder") > 0.1)
+                                {
+                                    rigidBody.AddForce(rig_UpwardPlus.normalized * Speed / 10f, ForceMode.Impulse);
+                                }
+                                Instantiate(splashBoostObj, transform.position,  transform.rotation, transform);
                             }
                         }
                     }
@@ -113,24 +127,23 @@ public class HoverCraft : MonoBehaviour
                 //もしその速度が転覆する速度で転覆しそうであるなら...
 
                 //Transform.upをtransform.forwardの周りで回転してワールド全体の上方向に向けさせる回転をEularでRigidbodyに与える.
-                if ((dot < 0.15f && AngleDiff > 0f) || (!isCraftOnSurface && dot < 0.45f))
+                if ((dot < 0.3f && rigidBdy_XZ.magnitude < 0.1f && isCraftOnSurface) || !isCraftOnSurface)
                 {
-                    Quaternion quaternion = Quaternion.FromToRotation(transform.up, Vector3.up);
-                    rigidBody.AddTorque(quaternion * Vector3.left * (1f - dot) * 2f);
+                    Vector3 predictedUp = Quaternion.AngleAxis(
+                        rigidBody.angularVelocity.magnitude * Mathf.Rad2Deg * 0.5f / Speed,
+                        rigidBody.angularVelocity
+                    ) * transform.up;
+
+                    Vector3 torqueVector = Vector3.Cross(predictedUp, Vector3.up);
+                    // Uncomment the next line to stabilize on only 1 axis.
+                    //torqueVector = Vector3.Project(torqueVector, transform.forward);
+                    rigidBody.AddTorque(torqueVector * Speed * Mathf.Pow((1 - dot),2f));
+
                 }
 
                 if (!GameSystem_InGame.instance.isGameStarted)
                 {
-                    rigidBody.angularVelocity = Vector3.zero;
-                }
-                RaycastHit HitOnTerrain;
-                //Terrainレイヤーのみにヒットする.
-                int layermask = LayerMask.GetMask(new string[] { "Terrain" });
-
-                Physics.Raycast(transform.position, -transform.up, out HitOnTerrain, 0.02f, layermask);
-                if (HitOnTerrain.transform != null)
-                {
-                    isCraftOnSurface = true;
+                    rigidBody.velocity = rigidBody.velocity - rigidBdy_XZ;
                 }
                 if (isCraftOnSurface)
                 {
@@ -165,9 +178,8 @@ public class HoverCraft : MonoBehaviour
                     FrontModule2.startSpeed = 0f;
                     FrontModule2.maxParticles = 0;
                 }
-                Vector2 RigVelXZ = new Vector2(rigidBody.velocity.x, rigidBody.velocity.z);
-                float rigVel = Mathf.Clamp((RigVelXZ.magnitude - 0.3f) / 10.0f, 0.0001f, 1.0f);
-                if (RigVelXZ.magnitude > 0.3f)
+                float rigVel = Mathf.Clamp((rigidBdy_XZ.magnitude - 0.3f) / 10.0f, 0.0001f, 1.0f);
+                if (rigidBdy_XZ.magnitude > 0.3f)
                 {
                     AudEngineGroup.SetFloat("Engine_Vol", Mathf.Clamp(20.0f * Mathf.Log10(rigVel), -45f, 0f));
                     AudEngineGroup.SetFloat("Engine_PitchShift", 0.98f + rigVel * 0.4f);
@@ -188,10 +200,8 @@ public class HoverCraft : MonoBehaviour
                 FrontModule1.maxParticles = 200;
                 FrontModule2.maxParticles = 200;
 
-                Vector2 RigVelXZ = new Vector2(rigidBody.velocity.x, rigidBody.velocity.z);
-
-                float rigVel = Mathf.Clamp((RigVelXZ.magnitude - 0.3f) / 10.0f, 0.0001f, 1.0f);
-                if (RigVelXZ.magnitude > 0.3f)
+                float rigVel = Mathf.Clamp((rigidBdy_XZ.magnitude - 0.3f) / 10.0f, 0.0001f, 1.0f);
+                if (rigidBdy_XZ.magnitude > 0.3f)
                 {
                     AudEngineGroup.SetFloat("Engine_Vol", Mathf.Clamp(20.0f * Mathf.Log10(rigVel), -45f, 0f));
                     AudEngineGroup.SetFloat("Engine_PitchShift", 0.98f + rigVel * 0.4f);

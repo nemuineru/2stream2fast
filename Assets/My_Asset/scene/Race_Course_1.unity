@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 39a84b6d94ee3e343a76602bfdd265a5, type: 2}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.6488404, g: 0.30330056, b: 0.61297274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -27870,17 +27870,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1d3af62d7ad5d6b49a87d93f03880acb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.444767
+      value: -20.429
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d3af62d7ad5d6b49a87d93f03880acb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.06869911
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d3af62d7ad5d6b49a87d93f03880acb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.84
+      value: -12.843
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d3af62d7ad5d6b49a87d93f03880acb,
         type: 3}
@@ -29106,6 +29106,7 @@ MonoBehaviour:
   waterAngulerDrag: 0.2
   splashObj: {fileID: 8205706795460263316, guid: 331eba11f8f04b248973e9aacc9c6815,
     type: 3}
+  splashBoostObj: {fileID: 0}
   WaterJet_L: {fileID: 40359305}
   WaterJet_R: {fileID: 1032507403}
   WaterJetFront1: {fileID: 1128908887}
@@ -29457,8 +29458,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.06381649, y: 0.15476726, z: -0.010018597, w: 0.9858368}
-  m_LocalPosition: {x: -21.364056, y: 0.9313009, z: -15.695681}
+  m_LocalRotation: {x: 0.0638165, y: 0.15476726, z: -0.010018599, w: 0.9858368}
+  m_LocalPosition: {x: -21.34829, y: 1.11, z: -15.698681}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -68694,7 +68695,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 70
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -72181,8 +72182,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001780409}
-  m_LocalRotation: {x: 0.06381649, y: 0.15476726, z: -0.010018597, w: 0.9858368}
-  m_LocalPosition: {x: -21.364056, y: 0.9313009, z: -15.695681}
+  m_LocalRotation: {x: 0.0638165, y: 0.15476726, z: -0.010018599, w: 0.9858368}
+  m_LocalPosition: {x: -21.34829, y: 1.11, z: -15.698681}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1130339643}
@@ -79657,6 +79658,7 @@ MonoBehaviour:
   waterAngulerDrag: 0.2
   splashObj: {fileID: 8205706795460263316, guid: 331eba11f8f04b248973e9aacc9c6815,
     type: 3}
+  splashBoostObj: {fileID: 0}
   WaterJet_L: {fileID: 2137874352}
   WaterJet_R: {fileID: 1687549634}
   WaterJetFront1: {fileID: 1711589212}

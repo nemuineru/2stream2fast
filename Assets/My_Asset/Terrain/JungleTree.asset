@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8fda743b539a043b220ae6e99779c2, type: 3}
+  m_Name: JungleTree
+  m_EditorClassIdentifier: 
+  prototypes:
+  - prefab: {fileID: 1175066879663558, guid: ee22fd94a14e96e4ebb960ddb85ea585, type: 3}
+    sharedMesh: {fileID: 4300052, guid: 70d9dd1320913904aa353648dfde232b, type: 3}
+    sharedMaterials:
+    - {fileID: 2100000, guid: 7cbc7316b4f5706498ce2ad82cfd44eb, type: 2}
+    - {fileID: 2100000, guid: b71dd66be1fe5f44a9f2582d6f16b06e, type: 2}
+    shadowCastingMode: 1
+    receiveShadow: 1
+    layer: 0
+    keepPrefabLayer: 0
+    billboard: {fileID: 0}
+    hasCollider: 0
+    colliderInfo:
+      center: {x: 0, y: 0, z: 0}
+      radius: 0
+      height: 0
+      direction: 0
+    pivotOffset: 0
+    baseRotation: {x: 0, y: 0, z: 0, w: 1}
+    baseScale: {x: 1, y: 1, z: 1}
+    editor_PrefabAssetPath: Assets/Polaris - Low Poly Ecosystem/Polaris V2 - Low
+      Poly Terrain Engine/Samples/Distant Lands/Prefabs/Jungle Tree 8.prefab
+  - prefab: {fileID: 1231333153559140, guid: 70449fc2599c37a409dc726a23b522ee, type: 3}
+    sharedMesh: {fileID: 4300062, guid: 70d9dd1320913904aa353648dfde232b, type: 3}
+    sharedMaterials:
+    - {fileID: 2100000, guid: 7cbc7316b4f5706498ce2ad82cfd44eb, type: 2}
+    - {fileID: 2100000, guid: b71dd66be1fe5f44a9f2582d6f16b06e, type: 2}
+    shadowCastingMode: 1
+    receiveShadow: 1
+    layer: 0
+    keepPrefabLayer: 0
+    billboard: {fileID: 0}
+    hasCollider: 0
+    colliderInfo:
+      center: {x: 0, y: 0, z: 0}
+      radius: 0
+      height: 0
+      direction: 0
+    pivotOffset: 0
+    baseRotation: {x: 0, y: 0, z: 0, w: 1}
+    baseScale: {x: 1, y: 1, z: 1}
+    editor_PrefabAssetPath: Assets/Polaris - Low Poly Ecosystem/Polaris V2 - Low
+      Poly Terrain Engine/Samples/Distant Lands/Prefabs/Large Jungle Tree 3.prefab

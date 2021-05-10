@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 40be8d162497a4a4ca220bbaf3d032bc, type: 2}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.47560835, g: 0.6136312, b: 0.7242205, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12556,7 +12556,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213407890}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 2.5225682, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 5.121879, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -14257,7 +14257,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269368053}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0.78385276, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 0.06459137, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -14597,7 +14597,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291707321}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 2.0164557, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 2.0053833, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -15599,7 +15599,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397543902}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 8.320646, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 17.781366, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -16959,7 +16959,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640228177}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 6.023837, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 21.527256, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -17173,7 +17173,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644087332}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 4.055364, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 4.186391, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -17312,7 +17312,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655415005}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 4.7618613, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 4.097038, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -17579,7 +17579,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663799570}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 2.736025, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 4.186391, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -19601,7 +19601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groupId: -1
-  mode: 7
+  mode: 0
   customPainterIndex: 0
   customPainterArgs: 
   editor_EnableHistory: 1
@@ -19611,7 +19611,7 @@ MonoBehaviour:
   brushRadiusJitter: 0.57
   brushRotation: 0
   brushRotationJitter: 0.59
-  brushOpacity: 0.249
+  brushOpacity: 0.634
   brushOpacityJitter: 0.43
   brushTargetStrength: 0.41
   brushScatter: 0
@@ -19630,9 +19630,9 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 36ca50646fcd9bb438393fe69f4fce4d, type: 3}
   - {fileID: 2800000, guid: c04dea6ddca855243b98689304bd531d, type: 3}
   - {fileID: 2800000, guid: a980d13c990ec08429a09a1d0c1edb47, type: 3}
-  selectedBrushMaskIndex: 0
+  selectedBrushMaskIndex: 1
   selectedSplatIndex: 0
-  samplePoint: {x: 0, y: 0, z: 0}
+  samplePoint: {x: 56.87968, y: 15.382759, z: -165.18268}
 --- !u!43 &818699633
 Mesh:
   m_ObjectHideFlags: 0
@@ -21040,7 +21040,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887051564}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 5.5863132, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 25.09927, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -21484,12 +21484,14 @@ MonoBehaviour:
   waterAngulerDrag: 0.25
   splashObj: {fileID: 8205706795460263316, guid: 331eba11f8f04b248973e9aacc9c6815,
     type: 3}
+  splashBoostObj: {fileID: 0}
   WaterJet_L: {fileID: 40359305}
   WaterJet_R: {fileID: 1032507403}
   WaterJetFront1: {fileID: 1128908887}
   WaterJetFront2: {fileID: 1650206059}
   EngineForward: {fileID: 630006200}
   EngineIdle: {fileID: 102263564}
+  isCraftOnSurface: 0
   rigidBody: {fileID: 0}
 --- !u!1 &959783601
 GameObject:
@@ -21617,7 +21619,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.062912874, y: -0.15828648, z: 0.010106469, w: 0.9853351}
+  m_LocalRotation: {x: 0.062912874, y: -0.15828651, z: 0.01010647, w: 0.9853351}
   m_LocalPosition: {x: -53.522808, y: 1.19, z: -9.707143}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -36740,7 +36742,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151445598}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 4.299269, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 2.962681, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -37777,7 +37779,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279871316}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 3.104037, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 11.069435, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -37960,7 +37962,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288648108}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 3.3896196, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 3.182622, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -38753,7 +38755,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347335639}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 5.5474052, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 10.429219, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -38937,7 +38939,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365086578}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 5.160631, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 3.956017, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -39547,7 +39549,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501793110}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 3.9255676, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 3.71857, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -45733,7 +45735,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677367561}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 9.8154545, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 11.511726, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -57689,7 +57691,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952327449}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 10.8589, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 13.414441, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -59245,7 +59247,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001780409}
-  m_LocalRotation: {x: 0.062912874, y: -0.15828648, z: 0.010106469, w: 0.9853351}
+  m_LocalRotation: {x: 0.062912874, y: -0.15828651, z: 0.01010647, w: 0.9853351}
   m_LocalPosition: {x: -53.522808, y: 1.19, z: -9.707143}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -60040,7 +60042,7 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118030052}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 6.103191, z: 0}
+  m_LocalReferencePoint: {x: 0, y: 13.108806, z: 0}
   m_Size: 100
   m_FadeMode: 0
   m_AnimateCrossFading: 0
@@ -65095,12 +65097,14 @@ MonoBehaviour:
   waterAngulerDrag: 0.2
   splashObj: {fileID: 8205706795460263316, guid: 331eba11f8f04b248973e9aacc9c6815,
     type: 3}
+  splashBoostObj: {fileID: 0}
   WaterJet_L: {fileID: 2137874352}
   WaterJet_R: {fileID: 1687549634}
   WaterJetFront1: {fileID: 1711589212}
   WaterJetFront2: {fileID: 180950131}
   EngineForward: {fileID: 251334811}
   EngineIdle: {fileID: 2096979260}
+  isCraftOnSurface: 0
   rigidBody: {fileID: 0}
 --- !u!65 &782235359689964385
 BoxCollider:
